@@ -16,9 +16,15 @@ Route::get('/',function() {
 });
 
 
+// Route::get('/invoice/')
 
+Route::get('/customer', 'CustomerController@listAction');
 
+Route::get('/invoice', 'InvoiceController@listAction');
 
+Route::get('/invoice/{id}', "InvoiceController@detailAction");
+
+Route::get('/customer/{customerId}/newInvoice', "InvoiceController@newInvoice()");
 
 Route::get('home', 'HomeController@index');
 
