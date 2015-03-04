@@ -61,6 +61,6 @@ class InvoiceController extends Controller {
 			':itemID'=> $itemID,
 			':quantity'=> $quantity
 			]);
-		return redirect("/invoice/{{id}}");
+		return redirect("/invoice/$invoiceID");
 	}
 }
