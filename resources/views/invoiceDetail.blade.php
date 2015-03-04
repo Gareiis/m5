@@ -29,4 +29,16 @@
 		</tr>
 	@endforeach
 	</table>
+	
+
+	<form action="/invoice/{{$invoiceID}}/addItem" method="POST">
+		<select name="itemID" id="">
+		@foreach($items as $i)
+			<option value="{{$i->id}}">{{$i->name}}</option>
+		@endforeach
+		</select>
+		<input type="text" name="quantity">
+		<button>Add</button>
+		<input type="hidden" name="_token" value="{{ csrf_token() }}">
+	</form>
 @endsection

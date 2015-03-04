@@ -1,0 +1,1 @@
+Redirect::route('/customer/{customerId}/newInvoice')

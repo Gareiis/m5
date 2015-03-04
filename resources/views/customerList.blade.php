@@ -29,7 +29,7 @@
 				{{ $c->gender}}
 			</td>
 			<td>
-				<a href="/invoice/{{$c->id}}">New Invoice</a>
+				<a href="/customer/newInvoice/{customerId}">New Invoice</a>
 			</td>
 		</tr>
 
