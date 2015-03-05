@@ -50,17 +50,42 @@ class InvoiceController extends Controller {
 
 	public function addItemAction($invoiceID){
 
+		$check= 'select invoice_id, item_id from invoice_item 
+		 where invoice_id = :invoiceID
+		 and item_id = :itemID';
+
 		$quantity = Request::input('quantity');
 		$itemID = Request::input('itemID');
+		if(count($check)>0) {
 
-		$sql = 'INSERT INTO invoice_item (invoice_id, item_id, quantity)
-		values (:invoiceID, :itemID, :quantity)';
+			$sql = "UPDATE invoice_item 
+				set quantity = :quantity
+				where invoice_id = :invoiceID
+				and item_id = :itemID";
 
-		$rows = DB::insert($sql, [
-			':invoiceID'=> $invoiceID,
-			':itemID'=> $itemID,
-			':quantity'=> $quantity
-			]);
-		return redirect("/invoice/$invoiceID");
+			echo $sql;
+
+			$rows = DB::update($sql, [
+				':invoiceID'=> $invoiceID,
+				':itemID'=> $itemID,
+				':quantity'=> $quantity
+				]);
+		
+			return redirect("/invoice/$invoiceID");
+		} else {
+			$sql = 'INSERT INTO invoice_item (invoice_id, item_id, quantity)
+			values (:invoiceID, :itemID, :quantity)';
+
+			echo $sql;
+
+			$rows = DB::insert($sql, [
+				':invoiceID'=> $invoiceID,
+				':itemID'=> $itemID,
+				':quantity'=> $quantity
+				]);
+		
+			// return redirect("/invoice/$invoiceID");
+		}
+
 	}
 }

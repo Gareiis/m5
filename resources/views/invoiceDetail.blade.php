@@ -38,7 +38,7 @@
 		@endforeach
 		</select>
 		<input type="text" name="quantity">
-		<button>Add</button>
+		<button>Add/Update</button>
 		<input type="hidden" name="_token" value="{{ csrf_token() }}">
 	</form>
 @endsection
