@@ -24,7 +24,7 @@
 		</tr>
 	@foreach($invoices as $i)
 		<tr>
-			<td>{{ $i->invoice_id}}</td>
+			<td>{{ $i->id}}</td>
 			<td>{{ $i->first_name}} 
 				{{ $i->last_name}}
 			</td>
@@ -32,7 +32,7 @@
 				{{ $i->sum}}
 			</td>
 			<td>
-				<a href="/invoice/{{$i->invoice_id}}">Details</a>
+				<a href="/invoice/{{$i->id}}">Details</a>
 			</td>
 		</tr>
 	@endforeach

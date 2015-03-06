@@ -22,6 +22,8 @@ Route::get('/customer', 'CustomerController@listAction');
 
 Route::get('/invoice', 'InvoiceController@listAction');
 
+Route::get('/item', 'ItemController@listAction');
+
 Route::get('/invoice/{id}', "InvoiceController@detailAction");
 
 Route::get('/customer/newInvoice/{customerId}', "InvoiceController@newInvoice");

@@ -28,6 +28,7 @@
 			</td>
 		</tr>
 	@endforeach
+
 	</table>
 	
 
